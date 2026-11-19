@@ -177,3 +177,77 @@ textarea {
   color: transparent;
   -webkit-text-stroke: 1px var(--text);
 }
+
+/* ---------- Hero photo with arcs ---------- */
+.hero {
+  position: relative;
+  overflow: hidden;
+}
+
+.photo-wrap {
+  position: relative;
+  width: 280px;
+  height: 280px;
+  margin: 0 auto 40px;
+}
+
+.arc {
+  position: absolute;
+  border-radius: 50%;
+  border: 3px solid transparent;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.arc-1 {
+  width: 320px;
+  height: 320px;
+  border-top-color: var(--lime);
+  border-right-color: var(--lime);
+}
+
+.arc-2 {
+  width: 360px;
+  height: 360px;
+  border-top-color: var(--orange);
+  border-left-color: var(--orange);
+}
+
+.arc-3 {
+  width: 400px;
+  height: 400px;
+  border-bottom-color: var(--lime);
+  border-right-color: var(--orange);
+}
+
+.photo-wrap .profile-img {
+  position: relative;
+  z-index: 2;
+  width: 280px;
+  height: 280px;
+  margin: 0;
+  border: none;
+}
+
+/* ---------- ABOUT MYSELF lime box ---------- */
+.about-box {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: flex-start;
+  background: var(--lime);
+  color: #111;
+  padding: 18px 30px;
+  text-decoration: none;
+  font-family: 'Anton', sans-serif;
+  font-size: 28px;
+  line-height: 1;
+  text-transform: uppercase;
+  min-width: 260px;
+  text-align: left;
+}
+
+.about-box:hover {
+  background: var(--orange);
+  color: #fff;
+}
