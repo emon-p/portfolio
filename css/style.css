@@ -474,3 +474,38 @@ textarea {
     font-size: 32px;
   }
 }
+
+/* ---------- Custom cursor ---------- */
+body {
+  cursor: none;
+}
+
+.cursor {
+  width: 20px;
+  height: 20px;
+  border: 2px solid var(--lime);
+  border-radius: 50%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate(-50%, -50%);
+  transition: width 0.25s, height 0.25s, background 0.25s;
+}
+
+.cursor.hover {
+  width: 60px;
+  height: 60px;
+  background: rgba(200, 242, 90, 0.2);
+}
+
+/* Mobile e cursor lagbe na */
+@media (hover: none) {
+  body {
+    cursor: auto;
+  }
+  .cursor {
+    display: none;
+  }
+}
