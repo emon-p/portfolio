@@ -388,3 +388,70 @@ textarea {
     grid-template-columns: 1fr;
   }
 }
+
+/* ---------- Contact section ---------- */
+#contact {
+  padding: 60px 40px;
+  border-top: 1px solid #222;
+}
+
+.contact-wrap {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.contact-form {
+  max-width: 100%;
+}
+
+.contact-form button {
+  align-self: flex-start;
+  font-family: 'Anton', sans-serif;
+  font-size: 20px;
+  padding: 14px 40px;
+  cursor: pointer;
+}
+
+.social-links {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.social-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #1a1a1a;
+  border-left: 6px solid var(--lime);
+  padding: 18px 24px;
+  text-decoration: none;
+  color: var(--text);
+  transition: border-color 0.2s, transform 0.2s;
+}
+
+.social-card:hover {
+  border-left-color: var(--orange);
+  transform: translateX(6px);
+}
+
+.social-name {
+  font-family: 'Anton', sans-serif;
+  font-size: 22px;
+  text-transform: uppercase;
+  color: var(--lime);
+}
+
+.social-handle {
+  font-size: 14px;
+  color: #aaa;
+}
+
+@media (max-width: 800px) {
+  .contact-wrap {
+    grid-template-columns: 1fr;
+  }
+}
