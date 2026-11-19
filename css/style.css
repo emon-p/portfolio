@@ -322,3 +322,69 @@ textarea {
   background: var(--orange);
   color: #fff;
 }
+
+/* ---------- About section ---------- */
+#about {
+  padding: 60px 40px;
+  border-top: 1px solid #222;
+}
+
+.about-top {
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  gap: 40px;
+  align-items: start;
+  max-width: 1000px;
+  margin: 0 auto 50px;
+}
+
+.about-photo img {
+  width: 100%;
+  display: block;
+  border: 4px solid var(--lime);
+  object-fit: cover;
+}
+
+.about-text p {
+  color: #ccc;
+  font-size: 16px;
+  margin: 0 0 16px;
+}
+
+.info-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.info-card {
+  background: #1a1a1a;
+  border-left: 6px solid var(--orange);
+  padding: 24px;
+}
+
+.info-card h3 {
+  font-family: 'Anton', sans-serif;
+  font-size: 26px;
+  color: var(--lime);
+  margin: 0 0 14px;
+}
+
+.info-card p {
+  font-size: 14px;
+  color: #ccc;
+  margin: 0 0 12px;
+}
+
+.info-card.full {
+  grid-column: 1 / -1;
+}
+
+@media (max-width: 800px) {
+  .about-top,
+  .info-grid {
+    grid-template-columns: 1fr;
+  }
+}
