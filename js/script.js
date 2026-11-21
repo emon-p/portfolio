@@ -1,3 +1,4 @@
+// ---------- Custom cursor ----------
 const cursor = document.querySelector('.cursor');
 let mouseX = 0, mouseY = 0;
 let x = 0, y = 0;
@@ -7,33 +8,31 @@ document.addEventListener('mousemove', (e) => {
   mouseY = e.clientY;
 });
 
-// Cursor ektu ektu kore follow korbe
-function animate() {
+function animateCursor() {
   x += (mouseX - x) * 0.15;
   y += (mouseY - y) * 0.15;
   cursor.style.left = x + 'px';
   cursor.style.top = y + 'px';
-  requestAnimationFrame(animate);
+  requestAnimationFrame(animateCursor);
 }
-animate();
+animateCursor();
 
-// Link, button, card er upor gele cursor bore hobe
-document.querySelectorAll('a, button, .project-card, .social-card').forEach((el) => {
+document.querySelectorAll('a, button, .project-card, .social-card, .skill-card').forEach((el) => {
   el.addEventListener('mouseenter', () => cursor.classList.add('hover'));
   el.addEventListener('mouseleave', () => cursor.classList.remove('hover'));
 });
 
-// ---------- Scroll reveal + skill animation ----------
+// ---------- Scroll reveal ----------
 const targets = document.querySelectorAll(
-  '.section-head, .project-card, .skill-card, .social-card, #about p, #about .info-card, .about-photo, .quotes h2'
+  '.section-head, .project-card, .skill-card, .social-card, #about .about-text p, #about .info-card, .about-photo, .quotes h2'
 );
 
 targets.forEach((el, i) => {
   el.classList.add('reveal');
-  // Ektu ektu kore delay dile ekta ekta kore ashbe
   el.style.transitionDelay = (i % 4) * 0.1 + 's';
 });
 
+// ---------- Number count-up ----------
 function countUp(el) {
   const target = Number(el.dataset.target);
   const duration = 1500;
@@ -53,10 +52,8 @@ const observer = new IntersectionObserver((entries) => {
 
     entry.target.classList.add('show');
 
-    // Skill card e aste ring ar number dui-i chalbe
     if (entry.target.classList.contains('skill-card')) {
-      const num = entry.target.querySelector('.count');
-      countUp(num);
+      countUp(entry.target.querySelector('.count'));
     }
 
     observer.unobserve(entry.target);

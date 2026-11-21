@@ -30,6 +30,13 @@ section {
   padding: 60px 40px;
 }
 
+.navbar,
+section,
+.footer {
+  position: relative;
+  z-index: 1;
+}
+
 /* ---------- Background decoration ---------- */
 .bg-deco {
   position: fixed;
@@ -54,11 +61,6 @@ section {
 @keyframes spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
-}
-
-.navbar, section, .footer {
-  position: relative;
-  z-index: 1;
 }
 
 /* ---------- Navbar ---------- */
@@ -279,18 +281,11 @@ section {
   max-width: 900px;
 }
 
-.project-card:hover .project-img img {
-  transform: scale(1.05);
-}
-
 .project-img {
   position: relative;
   overflow: hidden;
   min-height: 260px;
   background: #0d0d0d;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   border-right: 4px solid var(--lime);
 }
 
@@ -303,14 +298,8 @@ section {
   transition: transform 0.4s;
 }
 
-.project-name {
-  font-family: 'Anton', sans-serif;
-  font-size: clamp(28px, 4vw, 44px);
-  text-align: center;
-  line-height: 1.1;
-  margin: 0;
-  padding: 20px;
-  color: var(--text);
+.project-card:hover .project-img img {
+  transform: scale(1.05);
 }
 
 .project-info {
@@ -356,12 +345,21 @@ section {
 
 .skill-card {
   position: relative;
-  background: #1a1a1a;
-  border: 1px solid #2a2a2a;
-  padding: 30px 20px 24px;
+  min-height: auto;
+  padding: 30px 20px 26px;
   text-align: center;
-  min-height: 300px;
   overflow: hidden;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(200, 242, 90, 0.2);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  transition: border-color 0.3s, transform 0.3s, background 0.3s;
+}
+
+.skill-card:hover {
+  background: rgba(255, 255, 255, 0.06);
+  border-color: var(--lime);
+  transform: translateY(-4px);
 }
 
 .ring {
@@ -417,10 +415,11 @@ section {
 
 .skill-card h4 {
   font-family: 'Anton', sans-serif;
-  font-size: 22px;
+  font-size: 20px;
+  letter-spacing: 0.5px;
   text-transform: uppercase;
   color: var(--lime);
-  margin: 190px 0 0;
+  margin: 18px 0 0;
 }
 
 /* ---------- About ---------- */
@@ -513,7 +512,8 @@ form {
   cursor: pointer;
 }
 
-input, textarea {
+input,
+textarea {
   background: #222;
   border: 1px solid #333;
   color: var(--text);
@@ -648,52 +648,10 @@ textarea {
   section {
     padding: 40px 20px;
   }
-  .project-name {
-    font-size: 32px;
-  }
 }
 
 @media (max-width: 500px) {
   .skills-grid {
     grid-template-columns: 1fr;
   }
-}
-/* ---------- Skill card transparent glass effect ---------- */
-.skill-card {
-  background: rgba(26, 26, 26, 0.55);
-  border: 1px solid rgba(200, 242, 90, 0.15);
-  backdrop-filter: blur(6px);
-  -webkit-backdrop-filter: blur(6px);
-  transition: border-color 0.3s, transform 0.3s;
-}
-
-.skill-card:hover {
-  border-color: var(--lime);
-  transform: translateY(-4px);
-}
-/* ---------- Skill card: compact + visible glass ---------- */
-.skill-card {
-  min-height: auto;
-  padding: 30px 20px 26px;
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(200, 242, 90, 0.2);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  transition: border-color 0.3s, transform 0.3s, background 0.3s;
-}
-
-.skill-card:hover {
-  background: rgba(255, 255, 255, 0.06);
-  border-color: var(--lime);
-  transform: translateY(-4px);
-}
-
-.skill-val {
-  top: 31px;
-}
-
-.skill-card h4 {
-  margin: 18px 0 0;
-  font-size: 20px;
-  letter-spacing: 0.5px;
 }
