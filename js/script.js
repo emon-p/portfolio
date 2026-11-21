@@ -61,3 +61,77 @@ const observer = new IntersectionObserver((entries) => {
 }, { threshold: 0.2 });
 
 targets.forEach((el) => observer.observe(el));
+// ---------- Hero letter-by-letter animation ----------
+function splitLetters(el, speed, startDelay) {
+  const text = el.textContent;
+  el.textContent = '';
+  el.setAttribute('aria-label', text);
+
+  [...text].forEach((letter, i) => {
+    const span = document.createElement('span');
+    span.className = 'char';
+    span.setAttribute('aria-hidden', 'true');
+    span.innerHTML = letter === ' ' ? '&nbsp;' : letter;
+    span.style.animationDelay = (startDelay + i * speed) + 's';
+    el.appendChild(span);
+  });
+}
+
+const heroName = document.querySelector('.hero-name');
+const heroTag = document.querySelector('.hero-tag');
+
+if (heroName) splitLetters(heroName, 0.09, 0.2);
+if (heroTag) splitLetters(heroTag, 0.03, 1.2);
+// ---------- Quote word-by-word animation (line er por line) ----------
+const quoteSection = document.querySelector('.quotes');
+const quoteLines = document.querySelectorAll('.quote-line');
+
+// Prottek shobdo alada span e vaag kora
+quoteLines.forEach((line) => {
+  const nodes = [...line.childNodes];
+  line.innerHTML = '';
+
+  nodes.forEach((node) => {
+    const isOutline = node.nodeType === 1 && node.classList.contains('outline');
+    const cls = isOutline ? 'outline' : '';
+
+    node.textContent.split(/(\s+)/).forEach((part) => {
+      if (!part) return;
+      if (/^\s+$/.test(part)) {
+        line.appendChild(document.createTextNode(' '));
+        return;
+      }
+      const span = document.createElement('span');
+      span.className = ('word ' + cls).trim();
+      span.textContent = part;
+      line.appendChild(span);
+    });
+  });
+});
+
+// Ek line er shobdo gulo ek ek kore uthbe, shesh hole porer line
+function playLine(index) {
+  if (index >= quoteLines.length) return;
+
+  const line = quoteLines[index];
+  const words = line.querySelectorAll('.word');
+
+  words.forEach((word, i) => {
+    word.style.animationDelay = (i * 0.12) + 's';
+  });
+
+  line.classList.add('play');
+
+  const duration = words.length * 0.12 + 0.7;
+  setTimeout(() => playLine(index + 1), duration * 1000);
+}
+
+// Quotes section screen e ashle animation shuru
+const quoteObserver = new IntersectionObserver((entries, obs) => {
+  if (entries[0].isIntersecting) {
+    playLine(0);
+    obs.disconnect();
+  }
+}, { threshold: 0.3 });
+
+if (quoteSection) quoteObserver.observe(quoteSection);
