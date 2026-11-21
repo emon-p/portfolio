@@ -24,7 +24,7 @@ document.querySelectorAll('a, button, .project-card, .social-card, .skill-card')
 
 // ---------- Scroll reveal ----------
 const targets = document.querySelectorAll(
-  '.section-head, .project-card, .skill-card, .social-card, #about .about-text p, #about .info-card, .about-photo, .quotes h2'
+  '.section-head, .project-card, .skill-card, .cat-card, .social-card, #about .about-text p, #about .info-card, .about-photo, .quotes h2'
 );
 
 targets.forEach((el, i) => {

@@ -655,3 +655,102 @@ textarea {
     grid-template-columns: 1fr;
   }
 }
+/* ---------- Skill categories: project card style ---------- */
+.cat-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.cat-card {
+  background: #1a1a1a;
+  border: 1px solid #2a2a2a;
+  border-right: 4px solid var(--lime);
+  padding: 0;
+}
+
+.cat-title {
+  display: block;
+  font-family: 'Anton', sans-serif;
+  font-size: 22px;
+  text-transform: uppercase;
+  color: #111;
+  background: var(--lime);
+  padding: 10px 20px;
+  margin: 0;
+}
+
+.cat-rings {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px 12px;
+  padding: 28px 16px;
+}
+
+.cat-rings .skill-card {
+  flex: 0 0 84px;
+  width: 84px;
+  padding: 0;
+  min-height: auto;
+  background: transparent;
+  border: none;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  transform: none;
+}
+
+.cat-rings .skill-card:hover {
+  background: transparent;
+  transform: none;
+}
+
+.cat-rings .ring {
+  display: block;
+  width: 80px;
+  height: 80px;
+  margin: 0 auto;
+}
+
+.cat-rings .skill-val {
+  top: 0;
+  width: 80px;
+  height: 80px;
+  font-size: 18px;
+}
+
+.cat-rings .skill-card h4 {
+  font-size: 12px;
+  letter-spacing: 0.3px;
+  margin: 8px 0 0;
+  white-space: nowrap;
+  color: var(--lime);
+}
+
+@media (max-width: 800px) {
+  .cat-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .cat-rings {
+    gap: 14px 6px;
+    padding: 20px 10px;
+  }
+  .cat-rings .skill-card {
+    flex: 0 0 68px;
+    width: 68px;
+  }
+  .cat-rings .ring,
+  .cat-rings .skill-val {
+    width: 62px;
+    height: 62px;
+    font-size: 15px;
+  }
+  .cat-rings .skill-card h4 {
+    font-size: 10px;
+  }
+}
