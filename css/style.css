@@ -1152,14 +1152,19 @@ textarea {
     min-height: 200px;
   }
 }
-/* ---------- Contact (new design) ---------- */
+/* ---------- Contact section ---------- */
 .ct-wrap {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
   gap: 50px;
   max-width: 1000px;
   margin: 0 auto;
   align-items: start;
+}
+
+.ct-info {
+  display: flex;
+  flex-direction: column;
 }
 
 .ct-lead {
@@ -1176,14 +1181,13 @@ textarea {
   margin: 0 0 30px;
 }
 
+/* Email / phone item */
 .ct-item {
   display: flex;
   align-items: center;
   gap: 16px;
-  margin-bottom: 20px;
+  margin-bottom: 16px;
 }
-
-
 
 .ct-item small {
   display: block;
@@ -1194,29 +1198,9 @@ textarea {
 .ct-item strong {
   font-size: 17px;
   color: var(--text);
+  font-weight: 700;
 }
 
-.ct-divider {
-  height: 1px;
-  background: #2a2a2a;
-  margin: 30px 0 24px;
-}
-
-.ct-social-title {
-  font-family: 'Anton', sans-serif;
-  font-size: 16px;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-  color: var(--orange);
-  margin: 0 0 14px;
-}
-
-.ct-socials {
-  display: flex;
-  gap: 12px;
-}
-
-/* ---------- Contact icons (SVG) ---------- */
 .ct-icon {
   flex-shrink: 0;
   width: 52px;
@@ -1241,6 +1225,26 @@ textarea {
   stroke-linejoin: round;
 }
 
+.ct-divider {
+  height: 1px;
+  background: #2a2a2a;
+  margin: 24px 0;
+}
+
+.ct-social-title {
+  font-family: 'Anton', sans-serif;
+  font-size: 16px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--orange);
+  margin: 0 0 14px;
+}
+
+.ct-socials {
+  display: flex;
+  gap: 12px;
+}
+
 .ct-social {
   width: 46px;
   height: 46px;
@@ -1260,17 +1264,6 @@ textarea {
   border-color: var(--lime);
 }
 
-/* Phone & email er dui item er moddhe gap */
-.ct-item + .ct-item {
-  margin-top: 4px;
-}
-
-.ct-social:hover {
-  background: var(--lime);
-  color: #111;
-  border-color: var(--lime);
-}
-
 /* Form card */
 .ct-form {
   background: #1a1a1a;
@@ -1280,7 +1273,6 @@ textarea {
   display: flex;
   flex-direction: column;
   gap: 18px;
-  max-width: none;
 }
 
 .ct-field label {
