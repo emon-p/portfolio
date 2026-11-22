@@ -1152,3 +1152,190 @@ textarea {
     min-height: 200px;
   }
 }
+/* ---------- Contact (new design) ---------- */
+.ct-wrap {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 50px;
+  max-width: 1000px;
+  margin: 0 auto;
+  align-items: start;
+}
+
+.ct-lead {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 900;
+  font-size: 28px;
+  color: var(--text);
+  margin: 0 0 16px;
+}
+
+.ct-text {
+  color: #bbb;
+  font-size: 16px;
+  margin: 0 0 30px;
+}
+
+.ct-item {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+
+
+.ct-item small {
+  display: block;
+  color: #999;
+  font-size: 13px;
+}
+
+.ct-item strong {
+  font-size: 17px;
+  color: var(--text);
+}
+
+.ct-divider {
+  height: 1px;
+  background: #2a2a2a;
+  margin: 30px 0 24px;
+}
+
+.ct-social-title {
+  font-family: 'Anton', sans-serif;
+  font-size: 16px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--orange);
+  margin: 0 0 14px;
+}
+
+.ct-socials {
+  display: flex;
+  gap: 12px;
+}
+
+/* ---------- Contact icons (SVG) ---------- */
+.ct-icon {
+  flex-shrink: 0;
+  width: 52px;
+  height: 52px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #1a1a1a;
+  border: 1px solid #2a2a2a;
+  border-left: 4px solid var(--lime);
+  color: var(--lime);
+}
+
+.ct-icon svg,
+.ct-social svg {
+  width: 22px;
+  height: 22px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.ct-social {
+  width: 46px;
+  height: 46px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #1a1a1a;
+  border: 1px solid #2a2a2a;
+  color: var(--lime);
+  text-decoration: none;
+  transition: background 0.3s, color 0.3s, border-color 0.3s;
+}
+
+.ct-social:hover {
+  background: var(--lime);
+  color: #111;
+  border-color: var(--lime);
+}
+
+/* Phone & email er dui item er moddhe gap */
+.ct-item + .ct-item {
+  margin-top: 4px;
+}
+
+.ct-social:hover {
+  background: var(--lime);
+  color: #111;
+  border-color: var(--lime);
+}
+
+/* Form card */
+.ct-form {
+  background: #1a1a1a;
+  border: 1px solid #2a2a2a;
+  border-right: 4px solid var(--orange);
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  max-width: none;
+}
+
+.ct-field label {
+  display: block;
+  font-weight: 700;
+  font-size: 14px;
+  color: var(--text);
+  margin-bottom: 8px;
+}
+
+.ct-field input,
+.ct-field textarea {
+  width: 100%;
+  background: #0d0d0d;
+  border: 1px solid #333;
+  padding: 14px;
+  color: var(--text);
+  font-family: inherit;
+  font-size: 15px;
+  transition: border-color 0.3s;
+}
+
+.ct-field input:focus,
+.ct-field textarea:focus {
+  outline: none;
+  border-color: var(--lime);
+}
+
+.ct-field textarea {
+  min-height: 130px;
+  resize: vertical;
+}
+
+.ct-btn {
+  align-self: stretch;
+  padding: 16px;
+  background: var(--lime);
+  color: #111;
+  border: none;
+  font-family: 'Anton', sans-serif;
+  font-size: 20px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background 0.3s, color 0.3s;
+}
+
+.ct-btn:hover {
+  background: var(--orange);
+  color: #fff;
+}
+
+@media (max-width: 800px) {
+  .ct-wrap {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+}
