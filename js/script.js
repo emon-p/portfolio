@@ -135,3 +135,16 @@ const quoteObserver = new IntersectionObserver((entries, obs) => {
 }, { threshold: 0.3 });
 
 if (quoteSection) quoteObserver.observe(quoteSection);
+
+// ---------- Dark / Light theme toggle ----------
+const themeBtn = document.getElementById('theme-toggle');
+
+if (localStorage.getItem('theme') === 'light') {
+  document.body.classList.add('light');
+}
+
+themeBtn.addEventListener('click', () => {
+  document.body.classList.toggle('light');
+  const isLight = document.body.classList.contains('light');
+  localStorage.setItem('theme', isLight ? 'light' : 'dark');
+});
